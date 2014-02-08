@@ -7,10 +7,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import Controler.RunControler;
-
 public class MainGUI {
-	private MainGUI gui;
 	private JFrame mainFrame;
 	private JMenuBar mainMenuBar;
 	
