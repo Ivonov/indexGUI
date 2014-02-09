@@ -2,19 +2,14 @@ package Controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JComponent;
+import javax.swing.JMenuItem;
+
 import View.MainGUI;
 
-public class RunControler extends MainControler implements ActionListener {
+public class RunControler implements ActionListener {
 	
-	public RunControler(MainGUI gui){
-		super(gui);
-		
+	public RunControler(){
+		// weet nog niet
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

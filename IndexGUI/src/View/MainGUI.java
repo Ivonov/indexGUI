@@ -1,15 +1,30 @@
 package View;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class MainGUI {
 	private JFrame mainFrame;
 	private JMenuBar mainMenuBar;
+	//IndexGUI menus
+	private JMenuItem about;
+	private JMenuItem quit;
+	//File menus
+	private JMenuItem refresh;
+	//Tab views
+	private JPanel view1;
+	private JPanel view2;
 	
 	/**
 	 * Paints the GUI part of things
@@ -17,7 +32,8 @@ public class MainGUI {
 	public MainGUI(){
 		mainFrame = new JFrame("Ivonov was here");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.pack();
+		mainFrame.setSize(800,400);
+		//mainFrame.pack();
 	
 		mainMenuBar = new JMenuBar();
 		
@@ -28,55 +44,141 @@ public class MainGUI {
 		mainFrame.setVisible(true);
 	}
 	
+	/**
+	 * Greates all the menu and menu items
+	 */
 	private void configMenus(){
+		/*
+		 * IndexGIU menu
+		 */
 		JMenu indexGUI = new JMenu("IndexGUI");
 		mainMenuBar.add(indexGUI);
-		//indexGUI menu opties
-		JMenuItem about = new JMenuItem("About IndexGUI");
+		//About option
+		about = new JMenuItem("About IndexGUI");
 		indexGUI.add(about);
-		JMenuItem quit = new JMenuItem("Quit IndexGUI");
+		
+		//Quit option
+		quit = new JMenuItem("Quit IndexGUI");
 		indexGUI.add(quit);
 		
-		//TODO methode in package controler 
-		/*
-		 * --Hier een voorbeeld, misschien is er een betere oplossing?
-		 * public void addActionlistener(JMenuItem item);
-		 * 	item.addActionListener(new ActionListener(){
-		 * 		@Override
-		 * 		public void actionPerformed(ActionEvent e){
-		 * 			//omited
-		 * 		}
-		 * });
-		 * 
-		 * verder dit allemaal toevoegen aan al de andere menus
-		 */
 		
+		/*
+		 * File menu
+		 */
 		JMenu file = new JMenu("File");
 		mainMenuBar.add(file);
+		//Refresh option
+		refresh = new JMenuItem("Refresh");
+		file.add(refresh);
+		
+		/*
+		 * Help menu
+		 */
 		JMenu help = new JMenu("Help");
 		mainMenuBar.add(help);
+		
+		addMenuActions();
 	}
-	private JTabbedPane configTabbladen(){
-		//TODO Het toevoegen van actionListeners() bij elke tab
+	
+	/**
+	 * Adds all the ActionListeners to the JMenuItems
+	 */
+	private void addMenuActions(){
 		/*
-		 * en probeer te bedenken wat voor views er moeten komen
+		 * IndexGUI JMenuItems
 		 */
+		about.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				JOptionPane.showMessageDialog(null, "About to get down!");
+			}
+		});
+		quit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				JOptionPane.showMessageDialog(null, "Quit it already!");
+			}
+		});
+		
+		/*
+		 * File JMenuItems
+		 */
+		refresh.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				JOptionPane.showMessageDialog(null, "Refresh that f**king thing!");
+			}
+		});
+		
+	}
+	
+	/**
+	 * Greates all the tabs and returns a JTabbedPane to the constructor
+	 * @return mainTabs this is the JTabbedPane
+	 */
+	private JTabbedPane configTabbladen(){
 		JTabbedPane mainTabs = new JTabbedPane();
-		JPanel view1 = new JPanel();
-		mainTabs.addTab("View 1", view1);
-		JPanel view2 = new JPanel();
-		mainTabs.addTab("View 2", view2);
+		JLabel label1 = new JLabel("lol dit moet werken?");
+		//View 1
+		view1 = new JPanel();
+		mainTabs.addTab("View 1", null, view1, "Uitleg view1");
+		view1.add(label1);
+		
+		JLabel label2 = new JLabel("lol dit moet werken zo?");
+		//View 2
+		view2 = new JPanel();
+		mainTabs.addTab("View 2", null, view2, "Uitleg view2");
+		view2.add(label2);
+		
+		//addTabActions();
+		
 		return mainTabs;
 	}
+	
+	/**
+	 * Adds all the ActionListeners to the Tabs
+	 */
 	/*
-	 * 		TODO het aanmaken van een GIT repository
-	 *  	
+	private void addTabActions(){
+		
+		view1.addMouseListener(new MouseListener(){
+			public void mouseClicked(MouseEvent arg0) {
+				JOptionPane.showMessageDialog(null, "Tab view 1 is selected!");
+			}
+
+			public void mouseExited(MouseEvent arg0) {
+				//nothing
+			}
+
+			public void mouseEntered(MouseEvent arg0) {
+				//nothing
+			}
+
+			public void mousePressed(MouseEvent arg0) {
+				//nothing
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				//nothing
+			    System.out.println("Welcome to Java Programming!"); 
+			}
+			
+			public void mousePressed(MouseEvent e) {
+				JOptionPane.showMessageDialog(null, "Tab view 1 is selected!");
+			}
+			
+		});
+		
+		view2.addMouseListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				JOptionPane.showMessageDialog(null, "Tab view 2 is selected!");
+			}
+		});
+	}
+	*/
+	/*
+	 * 		TODO 
 	 * 		VERDERE PUNTEN:
 	 * -	Probeer te bedenken wat voor informatie verwerkt moet worden.
 	 * 
-	 * -	Sorteer functie moet toegevoegd worden in de model en controler.
-	 * 
-	 * -	Mensen vragen naar ideeen.
+	 * -	Sorteer functie
 	 * 
 	 * -	Onderzoek hoe je text in de panel de text print.
 	 * 
