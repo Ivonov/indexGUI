@@ -13,6 +13,7 @@ public class Director implements People {
 	 * @param age
 	 */
 	public Director(String name, int age){
+		moviesDirected = new ArrayList<Film>();
 		this.name = name;
 		this.age = age;
 	}
@@ -40,7 +41,7 @@ public class Director implements People {
 	 * Adds a movie to the ArrayList of movies where the Director have directed in.
 	 * @param film object of Film
 	 */
-	public void addPlayedMovie(Film film){
+	public void addMovieDirected(Film film){
 		moviesDirected.add(film);
 	}
 

@@ -9,10 +9,11 @@ public class Actor implements People {
 	
 	/**
 	 * Greates an Actor with name and age
-	 * @param name
-	 * @param age
+	 * @param name the name of the actor
+	 * @param age the age of the actor
 	 */
 	public Actor(String name, int age){
+		playedMovies = new ArrayList<Film>();
 		this.name = name;
 		this.age = age;
 	}

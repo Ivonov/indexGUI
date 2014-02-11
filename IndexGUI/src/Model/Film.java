@@ -15,6 +15,8 @@ public class Film {
 	 * @param release
 	 */
 	public Film(String title, String release){
+		directors = new ArrayList<Director>();
+		actors = new ArrayList<Actor>();
 		this.title = title;
 		this.release = release;
 	}
@@ -24,6 +26,7 @@ public class Film {
 	 */
 	public void addDirector(Director director){
 		directors.add(director);
+		director.addMovieDirected(this);
 	}
 	/**
 	 * Adds an Actor to the ArrayList of actors
@@ -31,6 +34,7 @@ public class Film {
 	 */
 	public void addActor(Actor actor){
 		actors.add(actor);
+		actor.addPlayedMovie(this);
 	}
 	
 	/**
@@ -40,7 +44,7 @@ public class Film {
 		return title;
 	}
 	/**
-	 * @return release releasedate of the movie
+	 * @return release release date of the movie
 	 */
 	public String getRelease(){
 		return release;

@@ -1,14 +1,9 @@
 package View;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
-
-import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -33,12 +28,19 @@ public class MainGUI {
 	private JPanel view1;
 	private JPanel view2;
 	
-	private String convert;
+	//Converts the titles of movies to String
+	private String convert = "";
 	
 	/**
 	 * Paints the GUI part of things
 	 */
 	public MainGUI(){
+	}
+	
+	/**
+	 * Greates the frame ect.
+	 */
+	public void greateFrame(){
 		mainFrame = new JFrame("Ivonov was here");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setSize(800,400);
@@ -112,7 +114,7 @@ public class MainGUI {
 		 */
 		refresh.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				JOptionPane.showMessageDialog(null, "Refresh that f**king thing!");
+				//JOptionPane.showMessageDialog(null, "Refresh that f**king thing!");
 			}
 		});
 		
@@ -124,14 +126,14 @@ public class MainGUI {
 	 */
 	private JTabbedPane configTabbladen(){
 		JTabbedPane mainTabs = new JTabbedPane();
-		JLabel label1 = new JLabel("lol dit moet werken?");
+		JLabel label1 = new JLabel(convert);
 		//View 1
 		view1 = new JPanel();
-		mainTabs.addTab("View 1", null, view1, "Uitleg view1");
+		mainTabs.addTab("Films", null, view1, "Uitleg view1");
 		view1.setLayout(new BorderLayout());
-		//label1.setHorizontalAlignment(SwingConstants.LEFT);
-		//view1.add(label1, BorderLayout.CENTER); 
-		view1.add(label1);
+		label1.setHorizontalAlignment(SwingConstants.LEFT);
+		view1.add(label1, BorderLayout.NORTH); 
+		//view1.add(label1);
 		
 		JLabel label2 = new JLabel("lol dit moet werken zo?");
 		//View 2
@@ -139,72 +141,19 @@ public class MainGUI {
 		mainTabs.addTab("View 2", null, view2, "Uitleg view2");
 		view2.add(label2);
 		
-		//addTabActions();
-		
 		return mainTabs;
 	}
 	
-	private JLabel setLabelContent(ArrayList<Film> films){
-		int i= 0;
-		while(!films.isEmpty()){
-			convert += films.get(i).getTitle() + "\n";
-			films.remove(i);
-			i++;
+	public void setLabelContent(ArrayList<Film> films){
+		if(films.isEmpty()){
+			convert = "Er zijn op dit moment geen films gevonden. <br>";
+		} else {
+			while(!films.isEmpty()){
+				convert += ("<p>" + films.get(0).getTitle() + "</p>");
+				films.remove(0);
+			}
 		}
-		JLabel label = new JLabel(convert);
-		return label;
+		convert = ("<html>"+convert+"</html>");
 	}
 	
-	/**
-	 * Adds all the ActionListeners to the Tabs
-	 */
-	/*
-	private void addTabActions(){
-		
-		view1.addMouseListener(new MouseListener(){
-			public void mouseClicked(MouseEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Tab view 1 is selected!");
-			}
-
-			public void mouseExited(MouseEvent arg0) {
-				//nothing
-			}
-
-			public void mouseEntered(MouseEvent arg0) {
-				//nothing
-			}
-
-			public void mousePressed(MouseEvent arg0) {
-				//nothing
-			}
-
-			public void mouseReleased(MouseEvent arg0) {
-				//nothing
-			    System.out.println("Welcome to Java Programming!"); 
-			}
-			
-			public void mousePressed(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, "Tab view 1 is selected!");
-			}
-			
-		});
-		
-		view2.addMouseListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				JOptionPane.showMessageDialog(null, "Tab view 2 is selected!");
-			}
-		});
-	}
-	*/
-	/*
-	 * 		TODO 
-	 * 		VERDERE PUNTEN:
-	 * -	Probeer te bedenken wat voor informatie verwerkt moet worden.
-	 * 
-	 * -	Sorteer functie
-	 * 
-	 * -	Onderzoek hoe je text in de panel de text print.
-	 * 
-	 * -	ect ............... xD
-	 */
 }
