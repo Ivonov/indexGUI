@@ -1,10 +1,14 @@
 package View;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -13,6 +17,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
+
+import Model.Film;
 
 public class MainGUI {
 	private JFrame mainFrame;
@@ -25,6 +32,8 @@ public class MainGUI {
 	//Tab views
 	private JPanel view1;
 	private JPanel view2;
+	
+	private String convert;
 	
 	/**
 	 * Paints the GUI part of things
@@ -119,6 +128,9 @@ public class MainGUI {
 		//View 1
 		view1 = new JPanel();
 		mainTabs.addTab("View 1", null, view1, "Uitleg view1");
+		view1.setLayout(new BorderLayout());
+		//label1.setHorizontalAlignment(SwingConstants.LEFT);
+		//view1.add(label1, BorderLayout.CENTER); 
 		view1.add(label1);
 		
 		JLabel label2 = new JLabel("lol dit moet werken zo?");
@@ -130,6 +142,17 @@ public class MainGUI {
 		//addTabActions();
 		
 		return mainTabs;
+	}
+	
+	private JLabel setLabelContent(ArrayList<Film> films){
+		int i= 0;
+		while(!films.isEmpty()){
+			convert += films.get(i).getTitle() + "\n";
+			films.remove(i);
+			i++;
+		}
+		JLabel label = new JLabel(convert);
+		return label;
 	}
 	
 	/**
