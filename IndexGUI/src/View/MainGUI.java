@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -12,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
 import Model.Film;
@@ -154,6 +156,40 @@ public class MainGUI {
 			}
 		}
 		convert = ("<html>"+convert+"</html>");
+	}
+	
+	//TODO toepassen van een tabel in het JPanel
+	public void addJTable(){
+		JTable table = new JTable();
+		addTableContent();
+	}
+	
+	private void addTableContent(ArrayList<Film> films){
+	/*	
+	 	*
+	 	*	Moet nog inzien of deze elementen gesplitst moeten worden over meerdere methode
+	 	*
+	 	
+	 	*	de hoeveelheid van elementen tellen om de hoeveelheid van spoil knoppen 
+	 		te maken films.size()
+	 			- 	optie 1: ervoor zorgen dat dit element word toegevoegd tussen het toevoegen 
+	 				van een nieuwe film
+	 			- 	optie 2: vooraf alle knoppen printen en daarna uitzoeken hoe je de info 
+	 				kunnen weergeven achter de desbetreffende knop
+		
+		*	Informatie toevoegen bij de knopppen
+				- moet achter de juiste knop weergegeven worden
+		
+		*	Functie toevoegen aan de juiste knoppen om extra informatie uit te printen
+				-	ervoor zorgen dat het niet helemaal opnieuw laat of onthoud waar hij
+					voorheen was, zodat je niet helemaal opnieuw moet navigeren.
+				
+		*	Uitzoeken hoe je een textpane tussen een JTable kan toevoegen voor het weergeven
+			van de extra informatie van een film
+				-	of er moet een extra groote collum komen die alle informatie weergeeft
+		
+		
+	*/
 	}
 	
 }
