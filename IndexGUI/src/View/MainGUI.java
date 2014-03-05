@@ -55,6 +55,9 @@ public class MainGUI {
 		mainFrame.setJMenuBar(mainMenuBar);
 		mainFrame.add(configTabbladen());
 		mainFrame.setVisible(true);
+		/*
+		 * TODO kleuren aanpassen van de JFrame en de menus ect.
+		 */
 	}
 	
 	/**
@@ -165,10 +168,13 @@ public class MainGUI {
 	}
 	
 	private void addTableContent(ArrayList<Film> films){
+		
 	/*	
+	 	**************************************************************************************
 	 	*
 	 	*	Moet nog inzien of deze elementen gesplitst moeten worden over meerdere methode
 	 	*
+	 	**************************************************************************************
 	 	
 	 	*	de hoeveelheid van elementen tellen om de hoeveelheid van spoil knoppen 
 	 		te maken films.size()
@@ -176,6 +182,7 @@ public class MainGUI {
 	 				van een nieuwe film
 	 			- 	optie 2: vooraf alle knoppen printen en daarna uitzoeken hoe je de info 
 	 				kunnen weergeven achter de desbetreffende knop
+	 			-	extra info op knoppen (http://submacro.intersite.com.br/javadoc/SubMacroForms/SubMacroForms/ButtonColumn.html)
 		
 		*	Informatie toevoegen bij de knopppen
 				- moet achter de juiste knop weergegeven worden
@@ -187,8 +194,15 @@ public class MainGUI {
 		*	Uitzoeken hoe je een textpane tussen een JTable kan toevoegen voor het weergeven
 			van de extra informatie van een film
 				-	of er moet een extra groote collum komen die alle informatie weergeeft
+				
+		*	Hyperlinks toevoegen aan de spoil element en eventueel een button toevoegen met 
+			daarin een hyperlink functie
+			
+		*	om en om andere row color toevoegen (http://stackoverflow.com/questions/11135695/coloring-jtable-row)
 		
+		*	Afbeelding interactie toevoegen (zoom functie in een apparte window zonder frame)
 		
+		*	Na gaan dat er nog notaties aanwezig zijn in het project!!!!!!!!
 	*/
 	}
 	

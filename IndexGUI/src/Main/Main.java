@@ -59,19 +59,6 @@ public class Main {
 		MainGUI main1 = new MainGUI();
 		main1.setLabelContent(films);
 		main1.greateFrame();
-		
-		/*
-		 * TODO ECHT TOEPASSEN!!!!!!!
-		 * JTable toepassen voor het weergeven van inforamtie (http://docs.oracle.com/javase/6/docs/api/javax/swing/JTable.html)
-		 * 		uitzoeken of afbeeldingen met interactie in een column kunnen
-		 * 		om en om andere row color toevoegen (http://stackoverflow.com/questions/11135695/coloring-jtable-row)
-		 * 		spoiler optie maken en zorgen dat het update op het beeld
-		 * 		Hyperlinks toevoegen in een column
-		 * 
-		 * JFrame kleuren aanpassen
-		 */
-		
-
 	}
 
 }
